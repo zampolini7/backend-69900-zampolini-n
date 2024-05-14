@@ -1,0 +1,29 @@
+{
+  "name": "backend-69900-zampolini-n",
+  "description": "Proyecto de desarrollo de  API para un e-commerce, en la carrera de backend de Coderhouse.",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zampolini7/backend-69900-zampolini-n.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.19.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/zampolini7/backend-69900-zampolini-n/issues"
+  },
+  "homepage": "https://github.com/zampolini7/backend-69900-zampolini-n#readme"
+}
