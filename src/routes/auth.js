@@ -12,7 +12,7 @@ router.post('/login', (req, res) => {
       expiresIn: '5m',
     })
     res.cookie('access_token', token, { maxAge: 100000, httpOnly: true })
-    res.json({ message: 'Login exitoso' })
+    res.json({ message: 'Login exitoso', token })
   } else {
     res.status(401).json({ message: 'Usuario o contraseña incorrectos' })
   }

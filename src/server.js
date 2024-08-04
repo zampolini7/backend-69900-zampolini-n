@@ -13,11 +13,28 @@ import passport from 'passport'
 
 const app = express()
 
+dotenv.config()
+
+// Configuración de middleware
+app.use(cookieParser()) // Debe estar antes de passport.initialize()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// Inicializa Passport
+initializePassport()
+
+app.use(passport.initialize())
+
+// Rutas y otros middlewares
 app.use('/api', router)
+app.use('/', viewsRouter)
+app.use(express.static(__dirname + '/public'))
 app.use(errorHandler)
-dotenv.config()
+
+// Configura Handlebars
+app.engine('handlebars', handlebars.engine())
+app.set('views', __dirname + '/views')
+app.set('view engine', 'handlebars')
 
 const PORT = process.env.PORT || 8080
 
@@ -29,15 +46,5 @@ initMongoDb()
 
 export const socketServer = new Server(http)
 socketServer.on('connection', (socket) => {
-  console.log('nueva conection' + socket.id)
+  console.log('Nueva conexión: ' + socket.id)
 })
-
-//handlebars
-app.engine('handlebars', handlebars.engine())
-app.set('views', __dirname + '/views')
-app.set('view engine', 'handlebars')
-app.use(express.static(__dirname + '/public'))
-app.use('/', viewsRouter)
-app.use(cookieParser())
-initializePassport()
-app.use(passport.initialize())

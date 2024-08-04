@@ -3,12 +3,12 @@ import passport from 'passport'
 export function passportCall(strategy) {
   return async (req, res, next) => {
     passport.authenticate(strategy, function (err, user, info) {
-      console.log('err', err)
+      console.log(user, 'user')
       if (err) return next(err)
       if (!user)
         return res
           .status(401)
-          .send({ message: info.messages ? info.messages : info.toString() })
+          .send({ message: info.message ? info.message : info.toString() })
 
       req.user = user
       next()
