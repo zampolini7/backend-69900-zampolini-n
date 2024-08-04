@@ -1,4 +1,4 @@
-import { ProductModel } from './product.model.js'
+import { ProductModel } from '../mongodb/models/product.model.js'
 
 export class ProductMongoDbDao {
   async getAll(limit = 10, page = 1, query = '', sort = 'desc') {

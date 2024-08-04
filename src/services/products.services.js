@@ -1,4 +1,4 @@
-import { ProductMongoDbDao } from '../daos/mongodb/models/product.dao.js'
+import { ProductMongoDbDao } from '../daos/mongodb/product.dao.js'
 
 const ProductDaoMongo = new ProductMongoDbDao()
 

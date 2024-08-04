@@ -1,4 +1,4 @@
-import { CartMongoDbDao } from '../daos/mongodb/cart.dao'
+import { CartMongoDbDao } from '../daos/mongodb/cart.dao.js'
 
 const cartDao = new CartMongoDbDao()
 

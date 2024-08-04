@@ -7,6 +7,9 @@ import viewsRouter from './routes/views.js'
 import dotenv from 'dotenv'
 import { initMongoDb } from './db/database.js'
 import errorHandler from './middleware/errorHandler.js'
+import cookieParser from 'cookie-parser'
+import { initializePassport } from './config/passport.config.js'
+import passport from 'passport'
 
 const app = express()
 
@@ -35,3 +38,6 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars')
 app.use(express.static(__dirname + '/public'))
 app.use('/', viewsRouter)
+app.use(cookieParser())
+initializePassport()
+app.use(passport.initialize())
